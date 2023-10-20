@@ -19,7 +19,6 @@ async function fetchWeather(location) {
       `https://api.weatherapi.com/v1/current.json?key=ebc59f6b584741b589f203651231410&q=${location}`
     );
     const json = await response.json();
-    console.log(json);
     screenUpdate(
       json.location.name,
       json.location.country,
@@ -54,7 +53,6 @@ let activeLocation = "London";
 fetchWeather(activeLocation);
 
 form.addEventListener("submit", (e) => {
-  console.log(e.currentTarget.location.value);
   activeLocation = e.currentTarget.location.value;
   fetchWeather(activeLocation);
   form.reset();
