@@ -7,7 +7,6 @@ import {
   temp_f,
   gust_kph,
   gust_mph,
-  imageUpdate,
 } from "./components/screenUpdate";
 
 const switchFC = document.querySelector("#switch");

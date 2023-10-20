@@ -10,7 +10,7 @@ const humidity = document.querySelector("#humidity");
 const gust_kph = document.querySelector("#gust_kph");
 const gust_mph = document.querySelector("#gust_mph");
 
-const forecastImage = document.querySelector(".forecastImage");
+//const forecastImage = document.querySelector(".forecastImage");
 
 function screenUpdate(
   city,
