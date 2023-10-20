@@ -1,14 +1,15 @@
 import "./style/style.css";
-import {
-  screenUpdate,
-  feelslike_c,
-  feelslike_f,
-  temp_c,
-  temp_f,
-  gust_kph,
-  gust_mph,
-} from "./components/screenUpdate";
 
+const locationName = document.querySelector("#locationName");
+const locationCountry = document.querySelector("#locationCountry");
+const temp_c = document.querySelector("#temp_c");
+const temp_f = document.querySelector("#temp_f");
+const condition = document.querySelector("#condition");
+const feelslike_c = document.querySelector("#feelslike_c");
+const feelslike_f = document.querySelector("#feelslike_f");
+const humidity = document.querySelector("#humidity");
+const gust_kph = document.querySelector("#gust_kph");
+const gust_mph = document.querySelector("#gust_mph");
 const switchFC = document.querySelector("#switch");
 const img = document.querySelector(".forecastImage");
 
@@ -18,18 +19,16 @@ async function fetchWeather(location) {
       `https://api.weatherapi.com/v1/current.json?key=ebc59f6b584741b589f203651231410&q=${location}`
     );
     const json = await response.json();
-    screenUpdate(
-      json.location.name,
-      json.location.country,
-      json.current.temp_c,
-      json.current.temp_f,
-      json.current.condition.text,
-      json.current.feelslike_c,
-      json.current.feelslike_f,
-      json.current.humidity,
-      json.current.gust_kph,
-      json.current.gust_mph
-    );
+    locationName.textContent = `${json.location.name}`;
+    locationCountry.textContent = `${json.location.country}`;
+    temp_c.textContent = `${json.current.temp_c}°C`;
+    temp_f.textContent = `${json.current.temp_f}°F`;
+    condition.textContent = `${json.current.condition.text}`;
+    feelslike_c.textContent = `Feels like: ${json.current.feelslike_c}°C`;
+    feelslike_f.textContent = `Feels like: ${json.current.feelslike_f}°F`;
+    humidity.textContent = `Humidity: ${json.current.humidity}%`;
+    gust_kph.textContent = `Gust: ${json.current.gust_kph} Km/h`;
+    gust_mph.textContent = `Gust: ${json.current.gust_mph} Mph`;
     fetchImage(json.current.condition.text);
   } catch {
     alert("No matching location found, please retry");
