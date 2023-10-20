@@ -59,7 +59,6 @@ form.addEventListener("submit", (e) => {
 
 switchFC.addEventListener("click", (e) => {
   const square = document.querySelector("#square");
-
   square.classList.toggle("trigger");
   temp_c.classList.toggle("invisible");
   temp_f.classList.toggle("invisible");
