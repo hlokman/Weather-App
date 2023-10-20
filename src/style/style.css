@@ -18,8 +18,7 @@ body {
 #header {
   /*border: 2px solid green;*/
   background-color: rgb(147, 233, 190);
-  /*background-color: rgb(69, 69, 90);*/
-  min-height: 50px;
+  min-height: 65px;
   display: grid;
   grid-template-columns: 285px 1fr;
   position: relative;
@@ -107,25 +106,128 @@ body {
   padding: 20px;
 }
 
+/*FORECAST LEFT PART*/
 #forecastDiv {
-  border: 2px solid purple;
+  /*border: 2px solid purple;*/
   min-width: 80%;
   min-height: 90%;
   display: flex;
-  align-items: center;
   justify-content: center;
-
   flex-wrap: wrap;
 }
 #forecast {
-  border: 2px solid black;
+  /*border: 2px solid black;*/
   flex: 1 1 340px;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+#switch {
+  height: 40px;
+  width: 80px;
+  margin-left: -22px;
+  background-color: rgb(160, 160, 160);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#button {
+  height: 90%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+#square {
+  height: 90%;
+  width: 50%;
+  background-color: rgb(237, 237, 237);
+  position: absolute;
+  transition: transform 300ms ease-in-out;
+}
+#square.trigger {
+  transform: translate(36px, 0px);
+}
+
+#top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#forecastSub1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#locationDisplay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#temp_c.invisible {
+  display: none;
+}
+#temp_f.invisible {
+  display: none;
+}
+#locationName {
+  margin-bottom: -15px;
+}
+#tempDisplay {
+  margin-top: -20px;
+  margin-bottom: -35px;
+}
+
+#forecastSub2 {
+  background: url(./line.svg);
+  content: "";
+  background-size: 100%;
+  height: 150px;
+  width: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#forecastSub3 {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  font-size: 19px;
+  gap: 15px;
+}
+#feelslike_c.invisible {
+  display: none;
+}
+#feelslike_f.invisible {
+  display: none;
+}
+#gust_kph.invisible {
+  display: none;
+}
+#gust_mph.invisible {
+  display: none;
+}
+
 #forecastImage {
-  border: 2px solid orange;
+  /*border: 2px solid orange;*/
   flex: 1 1 340px;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.forecastImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 5px solid wheat;
+  height: 70%;
+  width: 70%;
 }

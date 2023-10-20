@@ -1,6 +1,17 @@
 import "./style/style.css";
+import {
+  screenUpdate,
+  feelslike_c,
+  feelslike_f,
+  temp_c,
+  temp_f,
+  gust_kph,
+  gust_mph,
+  imageUpdate,
+} from "./components/screenUpdate";
 
-const form = document.querySelector("#form");
+const switchFC = document.querySelector("#switch");
+const img = document.querySelector(".forecastImage");
 
 async function fetchWeather(location) {
   try {
@@ -9,22 +20,37 @@ async function fetchWeather(location) {
     );
     const json = await response.json();
     console.log(json);
-    console.log(json.location.name);
-    console.log(json.location.country);
-    console.log(json.current.last_updated);
-    console.log(json.current.temp_c);
-    console.log(json.current.temp_f);
-    console.log(json.current.condition.text);
-    console.log(json.current.humidity);
-    console.log(json.current.gust_kph);
-    console.log(json.current.gust_mph);
+    screenUpdate(
+      json.location.name,
+      json.location.country,
+      json.current.temp_c,
+      json.current.temp_f,
+      json.current.condition.text,
+      json.current.feelslike_c,
+      json.current.feelslike_f,
+      json.current.humidity,
+      json.current.gust_kph,
+      json.current.gust_mph
+    );
+    fetchImage(json.current.condition.text);
   } catch {
-    console.log("No matching location found, please retry");
+    alert("No matching location found, please retry");
+  }
+
+  async function fetchImage(weather) {
+    try {
+      const response = await fetch(
+        `https://api.giphy.com/v1/gifs/translate?api_key=qrwtm0asJ8KH3GNaAfOj54FYDMCrKjnw&s=${weather}`
+      );
+      const json = await response.json();
+      img.src = json.data.images.original.url;
+    } catch {
+      alert("Please reload the page or check the Giphy's API");
+    }
   }
 }
 
-let activeLocation = "Paris";
-
+let activeLocation = "London";
 fetchWeather(activeLocation);
 
 form.addEventListener("submit", (e) => {
@@ -33,4 +59,16 @@ form.addEventListener("submit", (e) => {
   fetchWeather(activeLocation);
   form.reset();
   e.preventDefault();
+});
+
+switchFC.addEventListener("click", (e) => {
+  const square = document.querySelector("#square");
+
+  square.classList.toggle("trigger");
+  temp_c.classList.toggle("invisible");
+  temp_f.classList.toggle("invisible");
+  feelslike_c.classList.toggle("invisible");
+  feelslike_f.classList.toggle("invisible");
+  gust_kph.classList.toggle("invisible");
+  gust_mph.classList.toggle("invisible");
 });
