@@ -46,7 +46,7 @@ function screenUpdate(
   feelslike_f.textContent = `Feels like: ${feelsF}°F`;
 
   humidity.textContent = "";
-  humidity.textContent = `Humidity: ${humidityPara}`;
+  humidity.textContent = `Humidity: ${humidityPara}%`;
 
   gust_kph.textContent = "";
   gust_kph.textContent = `Gust: ${gustK} Km/h`;
