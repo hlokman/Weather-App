@@ -12,13 +12,13 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: 1fr 8fr;
-  /*border: 2px solid red;*/
 }
 
 #header {
   /*border: 2px solid green;*/
   background-color: rgb(147, 233, 190);
   min-height: 65px;
+  max-height: 120px;
   display: grid;
   grid-template-columns: 285px 1fr;
   position: relative;
