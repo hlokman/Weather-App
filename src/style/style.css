@@ -11,7 +11,7 @@ body {
 #container {
   height: 100vh;
   display: grid;
-  grid-template-rows: 1fr 8fr;
+  grid-template-rows: 1fr 11fr;
 }
 
 #header {
