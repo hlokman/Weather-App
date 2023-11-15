@@ -16,9 +16,8 @@ body {
 
 #header {
   /*border: 2px solid green;*/
-  background-color: rgb(147, 233, 190);
+  background-color: rgb(235, 208, 84);
   min-height: 65px;
-  max-height: 120px;
   display: grid;
   grid-template-columns: 285px 1fr;
   position: relative;
@@ -97,7 +96,7 @@ body {
 
 #content {
   /*border: 2px solid purple;*/
-  background-image: url(./background3.jpg);
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
   content: "";
   background-size: 100%;
   display: flex;
@@ -117,7 +116,7 @@ body {
 }
 #forecast {
   /*border: 2px solid black;*/
-  flex: 1 1 340px;
+  flex: 1 1 440px;
   min-height: 100%;
   width: 100%;
   display: flex;
@@ -217,7 +216,7 @@ body {
 
 #forecastImage {
   /*border: 2px solid orange;*/
-  flex: 1 1 340px;
+  flex: 1 1 440px;
   min-height: 100%;
   width: 100%;
   display: flex;
@@ -229,7 +228,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  border: 5px solid wheat;
+  border: 2px solid rgb(249, 255, 196);
   height: 70%;
   width: 70%;
 }
